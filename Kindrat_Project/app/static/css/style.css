@@ -1,0 +1,56 @@
+body {
+    overflow-x: hidden;
+    height: 100%;
+    margin: 0;
+}
+.navbar-brand {
+    font-size: 35px;
+}
+
+.navbar-nav {
+    font-size: 25px;
+}
+
+.main-image {
+    width: auto;
+    height: 300px;
+}
+
+footer {
+    display: grid;
+    place-items: center;
+    background-color: #f8f9fa;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.container {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.li_skills {
+    text-decoration: none;
+    list-style: none;
+}
+
+.form-bask {
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 2.5%;
+}
+
+.table-cookies {
+    position: relative;
+    left: -115%;
+}
+
+.form-check-input {
+    position: relative;
+    left: 35%;
+}

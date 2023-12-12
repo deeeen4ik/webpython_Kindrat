@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% from "macros.html" import render_field %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+          </div>
+          <div class="col-4">
+            <h1>Login</h1>
+            <form method="post" action="{{ url_for('login') }}" class="form-bask" novalidate>
+                {{ form.hidden_tag() }}
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-control") }} <br>
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control") }} <br>
+                {{ form.remember(class_="form-check-input") }}
+                {{ form.remember.label(class="form-check-label") }}<br><br>
+                {{ form.submit(class="btn btn-primary") }}
+            </form>
+            <h6>If you don`t have accout, you can <a href="{{ url_for('register') }}">Register</a>.</h6>
+          </div>
+          <div class="col">
+          </div>
+        </div>
+    </div>
+{% endblock %}

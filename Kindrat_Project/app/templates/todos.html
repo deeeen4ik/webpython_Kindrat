@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Todo List{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Todo List</h1>
+    <hr>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-control") }}
+        </div>
+        <div class="form-check mb-3">
+            {{ form.completed(class="form-check-input") }}
+            {{ form.completed.label(class="form-check-label") }}
+        </div>
+        <button type="submit" class="btn btn-primary">Add Todo</button>
+    </form>
+    <hr>
+    <h2>Todo Items</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Completed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todos %}
+            <tr>
+                <td>{{ todo.title }}</td>
+                <td>{{ todo.description }}</td>
+                <td>{{ 'Yes' if todo.completed else 'No' }}</td>
+                <td>
+                    <a href="{{ url_for('todo', id=todo.id) }}" class="btn btn-info btn-sm">Edit</a>
+                    <form method="POST" action="{{ url_for('delete_todo', id=todo.id) }}" style="display: inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

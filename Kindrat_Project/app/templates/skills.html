@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Skills{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <div class="row">
+          <div class="col">
+          </div>
+          <div class="col-9">
+            <h1>Welcome to Skills</h1>
+    
+            {% if skills %}
+                <ul>
+                    {% for skill in skills %}
+                        <li class="li_skills"><a href="{{ url_for('skill', id=loop.index0) }}">Skill {{ loop.index0 }}</a></li>
+                    {% endfor %}
+                </ul>
+                <p>Total Skills: {{ skills|length }}</p>
+            {% else %}
+                <p>No skills available.</p>
+            {% endif %}
+          </div>
+          <div class="col">
+          </div>
+        </div>
+    </div>
+{% endblock %}
