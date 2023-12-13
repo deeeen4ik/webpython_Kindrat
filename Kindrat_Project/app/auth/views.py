@@ -26,13 +26,13 @@ def register():
         existing_email = User.query.filter_by(email=form.email.data).first()
         if existing_user or existing_email:
             flash('Username or email already exists. Please choose a different one.', 'danger')
-            return redirect(url_for('register'))
+            return redirect(url_for('auth.register'))
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash('Your account has been created! You are now able to log in', 'success')
-        return redirect(url_for('login'))
+        return redirect(url_for('auth.login'))
     return render_template('register.html', title='Register', form=form)
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -43,7 +43,7 @@ def login():
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
             flash('You have been logged in!', 'success')
-            return redirect(url_for('home'))
+            return redirect(url_for('portfolio.home'))
         else:
             flash('Login unsuccessful. Please check email and password', 'danger')
     return render_template('login.html', title='Login', form=form)
@@ -53,7 +53,7 @@ def login():
 def logout():
     logout_user()
     flash('You have been logged out', 'success')
-    return redirect(url_for('home'))
+    return redirect(url_for('portfolio.home'))
     
 @auth.route('/change_password', methods=['GET', 'POST'])
 @login_required
@@ -70,10 +70,10 @@ def change_password():
 
                 save_users(users)
                 flash('Password changed successfully!', 'success')
-                return redirect(url_for('login'))
+                return redirect(url_for('auth.login'))
             else:
                 flash('New password is required to change', 'error')
-                return redirect(url_for('change_password'))
+                return redirect(url_for('auth.change_password'))
 
     return render_template('change_password.html', form=form)
 
@@ -92,7 +92,7 @@ def account():
         
         db.session.commit()
         flash('Your account has been updated!', 'success')
-        return redirect(url_for('account'))
+        return redirect(url_for('auth.account'))
     elif request.method == 'GET':
         update_form.username.data = current_user.username
         update_form.email.data = current_user.email
