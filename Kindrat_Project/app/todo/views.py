@@ -1,8 +1,12 @@
 from flask import flash, redirect, render_template, url_for
+from app import db, navigation
 from .forms import TodoForm
 from .models import Todo
-from app import db
 from . import todo
+
+@todo.context_processor
+def inject_navigation():
+    return dict(navigation=navigation())
 
 @todo.route('/todos', methods=['GET', 'POST'])
 def todos():
@@ -22,7 +26,7 @@ def todos():
     return render_template('todos.html', form=form, todos=todos)
 
 @todo.route('/todo/<int:id>', methods=['GET', 'POST'])
-def todoss(id):
+def update_todo(id):
     todo = Todo.query.get_or_404(id)
     form = TodoForm(obj=todo)
     if form.validate_on_submit():

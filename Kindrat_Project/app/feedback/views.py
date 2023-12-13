@@ -1,8 +1,12 @@
 from flask import flash, redirect, render_template, url_for
-from app import db
+from app import db, navigation
 from .forms import FeedbackForm
 from .models import Feedback
 from . import feedback
+
+@feedback.context_processor
+def inject_navigation():
+    return dict(navigation=navigation())
 
 @feedback.route('/feedbacks', methods=['GET', 'POST'])
 def feedbacks():

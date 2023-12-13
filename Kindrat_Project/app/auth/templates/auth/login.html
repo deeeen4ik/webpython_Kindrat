@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% from "macros.html" import render_field %}
 
 {% block title %}Login{% endblock %}
 
@@ -10,7 +9,7 @@
           </div>
           <div class="col-4">
             <h1>Login</h1>
-            <form method="post" action="{{ url_for('login') }}" class="form-bask" novalidate>
+            <form method="post" action="{{ url_for('auth.login') }}" class="form-bask" novalidate>
                 {{ form.hidden_tag() }}
                 {{ form.username.label(class="form-label") }}
                 {{ form.username(class="form-control") }} <br>
@@ -20,7 +19,7 @@
                 {{ form.remember.label(class="form-check-label") }}<br><br>
                 {{ form.submit(class="btn btn-primary") }}
             </form>
-            <h6>If you don`t have accout, you can <a href="{{ url_for('register') }}">Register</a>.</h6>
+            <h6>If you don`t have accout, you can <a href="{{ url_for('auth.register') }}">Register</a>.</h6>
           </div>
           <div class="col">
           </div>

@@ -9,6 +9,16 @@ bcrypt = Bcrypt()
 db = SQLAlchemy()
 login_manager = LoginManager()
 
+def navigation():
+    return {
+        'portfolio.home': 'Home',
+        'portfolio.resume': 'Resume',
+        'portfolio.skill': 'Skills',
+        'todo.todos': 'Todo',
+        'feedback.feedbacks': 'FeedBacks',
+        'users.user': 'Users',
+        'info.infos': 'Info',
+    }
 
 def create_app(config_name: str):
     app = Flask(__name__)

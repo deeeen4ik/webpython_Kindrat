@@ -31,7 +31,7 @@
                 <label for="delete_key" class="form-label">Delete Cookie by Key:</label>
                 <input type="text" id="delete_key" name="delete_key" placeholder="Key" class="form-control"><br>
                 <input type="submit" value="Delete" class="btn btn-danger"><hr>
-                <a href="{{ url_for('info', delete_key='all') }}"><button class="btn btn-danger">Delete All Cookies</button></a>
+                <a href="{{ url_for('info.infos', delete_key='all') }}"><button class="btn btn-danger">Delete All Cookies</button></a>
             </form><br><br>
             
             <table class="table table-cookies">
@@ -47,12 +47,12 @@
                 {% endfor %}
             </table><br><br>
 
-            <form action="{{ url_for('change_password') }}" method="get">
+            <form action="{{ url_for('auth.change_password') }}" method="get">
                 <input type="submit" class="btn btn-primary" value="Change Password">
             </form><br><br>
 
 
-            <form action="{{ url_for('logout') }}" method="post">
+            <form action="{{ url_for('auth.logout') }}" method="post">
                 <input type="submit" class="btn btn-danger" value="Вийти">
             </form><br><br><br>
 

@@ -1,7 +1,11 @@
 from flask import make_response, render_template, request, redirect, url_for, session, flash
 from flask_login import login_required
 from . import info
+from app import navigation
 
+@info.context_processor
+def inject_navigation():
+    return dict(navigation=navigation())
 
 @info.route('/info', methods=['GET', 'POST'])
 @login_required

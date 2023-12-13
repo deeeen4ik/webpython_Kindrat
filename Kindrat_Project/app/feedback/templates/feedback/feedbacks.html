@@ -7,7 +7,7 @@
         <div class="col"></div>
         <div class="col-4">
             <h2>Leave Feedback</h2>
-            <form method="POST" action="{{ url_for('feedbacks') }}">
+            <form method="POST" action="{{ url_for('feedback.feedbacks') }}">
                 {{ feedback_form.hidden_tag() }}
                 <div class="mb-3">
                     {{ feedback_form.username.label }}

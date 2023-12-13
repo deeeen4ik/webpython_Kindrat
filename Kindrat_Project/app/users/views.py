@@ -1,7 +1,12 @@
 from flask import render_template
 from flask_login import login_required
-from auth.models import User
+from app.auth.models import User
 from . import users
+from app import navigation
+
+@users.context_processor
+def inject_navigation():
+    return dict(navigation=navigation())
 
 @users.route('/users')
 @login_required

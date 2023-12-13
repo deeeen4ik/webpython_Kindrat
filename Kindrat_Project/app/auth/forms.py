@@ -35,6 +35,7 @@ class UpdateAccountForm(FlaskForm):
         Regexp('^[a-zA-Z0-9_.]+$', message='Username must have only letters, numbers, dots or underscores')
     ])
     email = StringField('Email', validators=[DataRequired(), Email()])
+    profile_picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
     submit = SubmitField('Update')
     about_me = StringField('About Me')
 

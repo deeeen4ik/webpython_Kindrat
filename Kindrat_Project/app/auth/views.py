@@ -4,11 +4,16 @@ from .forms import ChangePasswordForm, RegistrationForm, LoginForm, UpdateAccoun
 from .models import User
 from flask_login import login_user, current_user, logout_user, login_required
 from . import auth
-from app import db, bcrypt
+from app import db, bcrypt, navigation
 from PIL import Image
 import secrets
 import json
 import os
+
+
+@auth.context_processor
+def inject_navigation():
+    return dict(navigation=navigation())
 
 def load_users():
     with open('C:\\PNY\\Web-Python_Kindrat\\Kindrat_Project\\app\\users.json', 'r') as file:

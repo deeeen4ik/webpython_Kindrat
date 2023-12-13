@@ -8,7 +8,7 @@
         </div>
         <div class="col-4">
             <h1>Register</h1>
-            <form method="post" action="{{ url_for('register') }}" class="form-bask" novalidate>
+            <form method="post" action="{{ url_for('auth.register') }}" class="form-bask" novalidate>
                 {{ form.hidden_tag() }}
                 {{ form.username.label(class="form-label") }}
                 {{ form.username(class="form-control") }} <br>
@@ -20,7 +20,7 @@
                 {{ form.confirm_password(class="form-control") }} <br><br>
                 {{ form.submit(class="btn btn-primary") }}
             </form>
-            <h6>Have accout yet? <a href="{{ url_for('login') }}">Login</a>.</h6>
+            <h6>Have accout yet? <a href="{{ url_for('auth.login') }}">Login</a>.</h6>
         </div>
         <div class="col">
         </div>

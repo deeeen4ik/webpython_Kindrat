@@ -1,5 +1,6 @@
 from flask import render_template, request
 from . import portfolio
+from app import navigation
 from datetime import datetime
 import os
 
@@ -11,6 +12,11 @@ my_skills = [
     'Flask',
     'SQL',
 ]
+
+
+@portfolio.context_processor
+def inject_navigation():
+    return dict(navigation=navigation())
 
 @portfolio.route('/')
 def home():

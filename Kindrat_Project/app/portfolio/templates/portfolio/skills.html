@@ -13,7 +13,7 @@
             {% if skills %}
                 <ul>
                     {% for skill in skills %}
-                        <li class="li_skills"><a href="{{ url_for('skill', id=loop.index0) }}">Skill {{ loop.index0 }}</a></li>
+                        <li class="li_skills"><a href="{{ url_for('portfolio.skill', id=loop.index0) }}">Skill {{ loop.index0 }}</a></li>
                     {% endfor %}
                 </ul>
                 <p>Total Skills: {{ skills|length }}</p>
