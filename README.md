@@ -14,6 +14,7 @@
 7. [Лабораторна №7](#lab7) 
 8. [Лабораторна №8](#lab8) 
 9. [Лабораторна №9](#lab9) 
+13. [Лабораторна №13](#lab13) 
 
 ---
 
@@ -339,5 +340,38 @@ __3. Зміна даних на аккаунті(логіка зміни фот�
 __4. Помилка при використанні пошти яка уже використовується__:
 
 ![](Kindrat_Project/app/static/images/lab9/error_updating.png)
+
+[Вверх](#anchor)
+
+---
+
+<a id="lab13"></a>
+
+### Лабораторна №13
+#### Завдання 1:
++ Створити нове оновлення профілю
+
+#### Скріншоти:
+
+__1. GET(отримання всіх Todo)__:
+
+![](Kindrat_Project/app/static/images/lab13/get_all.png)
+
+__2. PUSH(запис нового Todo)__:
+
+![](Kindrat_Project/app/static/images/lab13/push.png)
+
+__3. GET_ID(отримання Todo за допомогою id)__:
+
+![](Kindrat_Project/app/static/images/lab13/get_by_id.png)
+
+__4. PUT(редагування певного Todo)__:
+
+![](Kindrat_Project/app/static/images/lab13/put.png)
+
+__5. DELETE(видалення певного Todo)__:
+
+![](Kindrat_Project/app/static/images/lab13/delete.png)
+![](Kindrat_Project/app/static/images/lab13/get_after_delete.png)
 
 [Вверх](#anchor)
