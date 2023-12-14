@@ -38,11 +38,13 @@ def create_app(config_name: str):
         from .auth.views import auth
         from .users.views import users
         from .info.views import info
+        from .api.todo import todo_api
         app.register_blueprint(todo)
         app.register_blueprint(feedback)
         app.register_blueprint(portfolio)
         app.register_blueprint(auth)
         app.register_blueprint(users)
         app.register_blueprint(info)
+        app.register_blueprint(todo_api)
         
         return app 
