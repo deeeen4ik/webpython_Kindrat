@@ -18,6 +18,7 @@ def navigation():
         'feedback.feedbacks': 'FeedBacks',
         'users.user': 'Users',
         'info.infos': 'Info',
+        'post_blp.posts': 'Posts',
     }
 
 def create_app(config_name: str):
@@ -39,6 +40,7 @@ def create_app(config_name: str):
         from .users.views import users
         from .info.views import info
         from .api.todo import todo_api
+        from .posts.views import post_blp
         app.register_blueprint(todo)
         app.register_blueprint(feedback)
         app.register_blueprint(portfolio)
@@ -46,5 +48,6 @@ def create_app(config_name: str):
         app.register_blueprint(users)
         app.register_blueprint(info)
         app.register_blueprint(todo_api)
+        app.register_blueprint(post_blp)
         
         return app 

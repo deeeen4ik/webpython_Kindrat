@@ -14,6 +14,8 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    posts = db.relationship('Post', backref='author', lazy=True)
 
     def is_authenticated(self):
         return True
