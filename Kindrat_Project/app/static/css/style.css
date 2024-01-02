@@ -54,3 +54,8 @@ footer {
     position: relative;
     left: 35%;
 }
+
+.account_image {
+    width: auto;
+    height: 200px;
+}

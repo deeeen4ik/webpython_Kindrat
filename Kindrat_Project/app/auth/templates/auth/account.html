@@ -9,12 +9,12 @@
           </div>
           <div class="col-4">
             <p style="color: rgba(184, 187, 190, 0.766);">Last Seen: {{ current_user.last_seen }}</p>
-            <img src="{{ url_for('static', filename='images/' + current_user.image_file) }}" alt="Profile Picture">
+            <img src="{{ url_for('static', filename='images/users/' + current_user.image_file) }}" alt="Profile Picture" class="account_image">
             <h1>{{ current_user.username }}</h1>
             <p>{{ current_user.email }}</p>
             <p>{{ current_user.about_me }}</p>
             <br><hr><br><h2>Update Profile</h2><br>
-            <form method="POST">
+            <form method="POST" novalidate enctype="multipart/form-data">
                 {{ update_form.hidden_tag() }}
                 <div class="form-group">
                     {{ update_form.username.label(class="form-control-label") }}

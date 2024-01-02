@@ -1,14 +1,12 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
-from datetime import datetime
+from flask import render_template, request, redirect, url_for, session, flash
 from .forms import ChangePasswordForm, RegistrationForm, LoginForm, UpdateAccountForm
-from .models import User
 from flask_login import login_user, current_user, logout_user, login_required
-from . import auth
+from .handler.account_handler import change_account_image
 from app import db, bcrypt, navigation
-from PIL import Image
-import secrets
+from datetime import datetime
+from .models import User
+from . import auth
 import json
-import os
 
 
 @auth.context_processor
@@ -92,7 +90,7 @@ def account():
         current_user.about_me = update_form.about_me.data
         
         if update_form.profile_picture.data:
-            picture_file = save_profile_picture(update_form.profile_picture.data)
+            picture_file = change_account_image(update_form.profile_picture.data)
             current_user.image_file = picture_file
         
         db.session.commit()
@@ -104,21 +102,6 @@ def account():
         update_form.about_me.data = current_user.about_me
     return render_template('account.html', title='Account', current_user=current_user, update_form=update_form)
 
-def save_profile_picture(form_picture):
-    random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename)
-    picture_fn = random_hex + f_ext
-    picture_path = os.path.join(auth.root_path, 'static/images', picture_fn)
-
-    output_size = (125, 125)
-    img = Image.open(form_picture)
-    img.thumbnail(output_size)
-    img.save(picture_path)
-
-    current_user.image_file = picture_fn
-    db.session.commit()
-
-    return picture_fn
 
 @auth.after_request
 def after_request(response):
