@@ -14,6 +14,7 @@
 7. [Лабораторна №7](#lab7) 
 8. [Лабораторна №8](#lab8) 
 9. [Лабораторна №9](#lab9) 
+11. [Лабораторна №11](#lab11) 
 13. [Лабораторна №13](#lab13) 
 
 ---
@@ -373,5 +374,41 @@ __5. DELETE(видалення певного Todo)__:
 
 ![](Kindrat_Project/app/static/images/lab13/delete.png)
 ![](Kindrat_Project/app/static/images/lab13/get_after_delete.png)
+
+[Вверх](#anchor)
+
+---
+
+<a id="lab11"></a>
+
+### Лабораторна №11
+#### Завдання 1:
++ Створити CRUD модель Post та добавити пагінацію.
+
+#### Скріншоти:
+
+__1. Posts__:
+
+![](Kindrat_Project/app/static/images/lab11/posts.png)
+
+__2. Pagination__:
+
+![](Kindrat_Project/app/static/images/lab11/pagination.png)
+
+__3. Post__:
+
+![](Kindrat_Project/app/static/images/lab11/post.png)
+
+__4. Редагувати Пост__:
+
+![](Kindrat_Project/app/static/images/lab11/edit_post.png)
+
+__5. Створити Пост__:
+
+![](Kindrat_Project/app/static/images/lab11/create.png)
+
+__6. Видалити Пост__:
+
+![](Kindrat_Project/app/static/images/lab11/delele.png)
 
 [Вверх](#anchor)
