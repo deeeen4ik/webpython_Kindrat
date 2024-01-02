@@ -54,3 +54,17 @@ footer {
     position: relative;
     left: 35%;
 }
+
+.account_image {
+    width: auto;
+    height: 200px;
+}
+
+.post-image {
+    width: auto;
+    height: 300px;
+}
+
+.add-post {
+    margin-left: 15px;
+}
