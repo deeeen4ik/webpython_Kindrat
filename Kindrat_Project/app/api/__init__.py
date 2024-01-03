@@ -1,3 +1,3 @@
 from flask import Blueprint
 
-todo_api = Blueprint('todo_api', __name__, url_prefix='/api')
+api_bp = Blueprint('api_bp', __name__, url_prefix='/api')
