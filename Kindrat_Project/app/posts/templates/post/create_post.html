@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}Додати пост{% endblock %}
+{% block title %}Add Post{% endblock %}
 
 {% block content %}
 <div class="container text-center">
     <div class="row">
         <div class="col"></div>
         <div class="col-4">
-            <h1 class="namesH">Додати пост</h1><hr>
+            <h1>Add Post</h1><hr>
             <form method="POST" enctype="multipart/form-data">
                 {{ form.hidden_tag() }}
                 <div class="form-group">
