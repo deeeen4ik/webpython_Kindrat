@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, url_for, session, flash
 from .forms import ChangePasswordForm, RegistrationForm, LoginForm, UpdateAccountForm
 from flask_login import login_user, current_user, logout_user, login_required
 from .handler.account_handler import change_account_image
-from app import db, bcrypt, navigation
+from app import db, navigation
 from datetime import datetime
 from .models import User
 from . import auth
@@ -30,8 +30,8 @@ def register():
         if existing_user or existing_email:
             flash('Username or email already exists. Please choose a different one.', 'danger')
             return redirect(url_for('auth.register'))
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        # hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
         flash('Your account has been created! You are now able to log in', 'success')
@@ -43,7 +43,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
+        if user and user.password == form.password.data:
             login_user(user, remember=form.remember.data)
             flash('You have been logged in!', 'success')
             return redirect(url_for('portfolio.home'))
