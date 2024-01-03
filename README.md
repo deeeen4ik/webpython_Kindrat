@@ -16,6 +16,7 @@
 9. [Лабораторна №9](#lab9) 
 11. [Лабораторна №11](#lab11) 
 13. [Лабораторна №13](#lab13) 
+14. [Лабораторна №14](#lab14) 
 
 ---
 
@@ -346,6 +347,43 @@ __4. Помилка при використанні пошти яка уже в�
 
 ---
 
+<a id="lab11"></a>
+
+### Лабораторна №11
+#### Завдання 1:
++ Створити CRUD модель Post та добавити пагінацію.
+
+#### Скріншоти:
+
+__1. Posts__:
+
+![](Kindrat_Project/app/static/images/lab11/posts.png)
+
+__2. Pagination__:
+
+![](Kindrat_Project/app/static/images/lab11/pagination.png)
+
+__3. Post__:
+
+![](Kindrat_Project/app/static/images/lab11/post.png)
+
+__4. Редагувати Пост__:
+
+![](Kindrat_Project/app/static/images/lab11/edit_post.png)
+
+__5. Створити Пост__:
+
+![](Kindrat_Project/app/static/images/lab11/create.png)
+
+__6. Видалити Пост__:
+
+![](Kindrat_Project/app/static/images/lab11/delele.png)
+
+[Вверх](#anchor)
+
+
+---
+
 <a id="lab13"></a>
 
 ### Лабораторна №13
@@ -379,36 +417,30 @@ __5. DELETE(видалення певного Todo)__:
 
 ---
 
-<a id="lab11"></a>
+<a id="lab14"></a>
 
-### Лабораторна №11
+### Лабораторна №14
 #### Завдання 1:
-+ Створити CRUD модель Post та добавити пагінацію.
++ Використати Basic Auth (модуль Flask-HTTPAuth) для реалізації отримання access  jwt-токена тільки для зареєстрованого користувача на сайті. 
++ Розмежуйте доступ до операцій Сreate, Update, Delete для моделі Todo ( доступ до цих операцій тільки по валідному jwt-токену).
++ Обробити всі можливі ситуації при виконанні запитів.
 
 #### Скріншоти:
 
-__1. Posts__:
+__1. GET JWT Token__:
 
-![](Kindrat_Project/app/static/images/lab11/posts.png)
+![](Kindrat_Project/app/static/images/lab14/get_jwt.png)
 
-__2. Pagination__:
+__2. Post з jwt token__:
 
-![](Kindrat_Project/app/static/images/lab11/pagination.png)
+![](Kindrat_Project/app/static/images/lab14/post_jwt.png)
 
-__3. Post__:
+__3. GET todo з jwt__:
 
-![](Kindrat_Project/app/static/images/lab11/post.png)
+![](Kindrat_Project/app/static/images/lab14/get_all.png)
 
-__4. Редагувати Пост__:
+__4. Get з помилкою бо нема jwt__:
 
-![](Kindrat_Project/app/static/images/lab11/edit_post.png)
-
-__5. Створити Пост__:
-
-![](Kindrat_Project/app/static/images/lab11/create.png)
-
-__6. Видалити Пост__:
-
-![](Kindrat_Project/app/static/images/lab11/delele.png)
+![](Kindrat_Project/app/static/images/lab14/get_error.png)
 
 [Вверх](#anchor)
