@@ -444,3 +444,37 @@ __4. Get з помилкою бо нема jwt__:
 ![](Kindrat_Project/app/static/images/lab14/get_error.png)
 
 [Вверх](#anchor)
+
+---
+
+<a id="ind2"></a>
+
+### Самостійна робота №2
+#### Завдання 1:
++ Створіть RESTful API окремим блюпринтом у вашому проекті з базовими операціями CRUD (створення, читання, оновлення і видалення) для об`єктів моделі у обраній предметній області згідно варіанту (поля моделі придумайте самі, має бути принаймні 3 поля, крім id). Приділіть увагу валідації вхідних даних та обробку помилок, що можуть виникнути під час запиту.
++ Розширте попередній пункт, зокрема, подбайте про безпеку виконання операції оновлення і видалення, використовуючи доступ по валідному токену JWT. Зареєстровані користувачі можуть отримати токен.
++ Протестуйте і заскрініть запити за допомогою Postman.
+
+#### Скріншоти:
+
+__1. Post resume__:
+
+![](Kindrat_Project/app/static/images/ind2/post_resume.png)
+
+__2. Get all resumes__:
+
+![](Kindrat_Project/app/static/images/ind2/get_all_resume.png)
+
+__3. GET without jwt__:
+
+![](Kindrat_Project/app/static/images/ind2/get_error.png)
+
+__4. Update resume__:
+
+![](Kindrat_Project/app/static/images/ind2/update_resume.png)
+
+__5. Delete resume__:
+
+![](Kindrat_Project/app/static/images/ind2/delete_resume.png)
+
+[Вверх](#anchor)

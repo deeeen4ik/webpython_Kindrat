@@ -6,6 +6,7 @@ from app import db, basic_auth
 from config import Config
 from app.auth.models import User
 from app.todo.models import Todo
+from app.resume.models import Resume
 import jwt
 
 @basic_auth.verify_password
@@ -38,6 +39,11 @@ def login():
         return jsonify({"token": token})
 
     return make_response('Invalid username or password', 401, {'WWW-Authenticate': 'Bearer realm="Authentication Required"'})
+
+
+
+
+
 
 @api_bp.route('/todos', methods=['GET'])
 @jwt_required()
@@ -79,3 +85,63 @@ def delete_todo(id):
     db.session.delete(todo)
     db.session.commit()
     return jsonify({'message': 'Todo deleted successfully'}), 200
+
+
+
+
+@api_bp.route('/resumes', methods=['GET'])
+@jwt_required()
+def get_resumes():
+    resumes = Resume.query.all()
+    resume_list = []
+    for resume in resumes:
+        resume_list.append({
+            'id': resume.id,
+            'title': resume.title,
+            'description': resume.description,
+            'skills': resume.skills
+        })
+    return jsonify({'resumes': resume_list})
+
+@api_bp.route('/resumes', methods=['POST'])
+@jwt_required()
+def create_resume():
+    data = request.json
+    new_resume = Resume(
+        title=data.get('title'),
+        description=data.get('description'),
+        skills=data.get('skills')
+    )
+    db.session.add(new_resume)
+    db.session.commit()
+    return jsonify({'message': 'Resume created successfully'}), 201
+
+@api_bp.route('/resumes/<int:id>', methods=['GET'])
+@jwt_required()
+def get_resume(id):
+    resume = Resume.query.get_or_404(id)
+    return jsonify({
+        'id': resume.id,
+        'title': resume.title,
+        'description': resume.description,
+        'skills': resume.skills
+    })
+
+@api_bp.route('/resumes/<int:id>', methods=['PUT'])
+@jwt_required()
+def update_resume(id):
+    resume = Resume.query.get_or_404(id)
+    data = request.json
+    resume.title = data.get('title', resume.title)
+    resume.description = data.get('description', resume.description)
+    resume.skills = data.get('skills', resume.skills)
+    db.session.commit()
+    return jsonify({'message': 'Resume updated successfully'}), 200
+
+@api_bp.route('/resumes/<int:id>', methods=['DELETE'])
+@jwt_required()
+def delete_resume(id):
+    resume = Resume.query.get_or_404(id)
+    db.session.delete(resume)
+    db.session.commit()
+    return jsonify({'message': 'Resume deleted successfully'}), 200
