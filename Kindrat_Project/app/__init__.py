@@ -2,12 +2,15 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_httpauth import HTTPBasicAuth
+from flask_jwt_extended import JWTManager
 # from flask_bcrypt import Bcrypt
 from config import config
 
 # bcrypt = Bcrypt()
 db = SQLAlchemy()
 login_manager = LoginManager()
+basic_auth = HTTPBasicAuth(scheme='Bearer')
 
 def navigation():
     return {
@@ -27,6 +30,7 @@ def create_app(config_name: str):
 
     db.init_app(app)
     Migrate(app, db)
+    JWTManager(app)
     
     login_manager.init_app(app)
     login_manager.login_view = 'auth.login'
@@ -39,7 +43,7 @@ def create_app(config_name: str):
         from .auth.views import auth
         from .users.views import users
         from .info.views import info
-        from .api.todo import todo_api
+        from .api.views import api_bp
         from .posts.views import post_blp
         app.register_blueprint(todo)
         app.register_blueprint(feedback)
@@ -47,7 +51,7 @@ def create_app(config_name: str):
         app.register_blueprint(auth)
         app.register_blueprint(users)
         app.register_blueprint(info)
-        app.register_blueprint(todo_api)
+        app.register_blueprint(api_bp)
         app.register_blueprint(post_blp)
         
         return app 
