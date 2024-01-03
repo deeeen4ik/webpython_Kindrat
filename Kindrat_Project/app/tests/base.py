@@ -14,8 +14,8 @@ class BaseTestCase(TestCase):
 
     def setUp(self):
         db.create_all()
-        user = User(username='user', email='user@gmail.com', password='1234')
-        todo = Todo(todo_item='test todo', description='This is a description')
+        user = User(username='user', email='user@gmail.com', password='pasw')
+        todo = Todo(title='test todo', description='This is a description')
         db.session.add_all([user, todo])
         db.session.commit()
 
