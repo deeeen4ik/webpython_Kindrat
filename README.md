@@ -17,6 +17,8 @@
 11. [Лабораторна №11](#lab11) 
 13. [Лабораторна №13](#lab13) 
 14. [Лабораторна №14](#lab14) 
+0. [Самостійна робота №2](#ind2) 
+15. [Лабораторна №15](#lab15) 
 
 ---
 
@@ -476,5 +478,35 @@ __4. Update resume__:
 __5. Delete resume__:
 
 ![](Kindrat_Project/app/static/images/ind2/delete_resume.png)
+
+[Вверх](#anchor)
+
+---
+
+<a id="lab15"></a>
+
+### Лабораторна №15
+#### Завдання 1:
++ Використати модуль flask_restful для розробки відповідних ендпоінтів  get, post, put, delete. Рекомендується використати  marshmallow/flask_marshmallow для серіалізації  даних у json і десереалізації даних із http-запиту, зокрема і для валідації даних із запиту. Обробити помилки, які можуть виникати під час запитів.
++ Протестувати і заскрінити запити за допомогою Postman.
++ Прикрутити Swagger UI для документації даного API (окремим блюпринтом, використавши, наприклад модуль flask_swagger_ui). Описати.
+
+#### Скріншоти:
+
+__1. Post(Postman)__:
+
+![](Kindrat_Project/app/static/images/lab15/post_user.png)
+
+__2. GET_ALL(Postman)__:
+
+![](Kindrat_Project/app/static/images/lab15/get_all_users.png)
+
+__3. Swagger.ui__:
+
+![](Kindrat_Project/app/static/images/lab15/swagger.png)
+
+__4. GET_ALL(Swagger)__:
+
+![](Kindrat_Project/app/static/images/ind2/swagger_all_user.png)
 
 [Вверх](#anchor)
